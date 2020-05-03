@@ -1,7 +1,7 @@
 const MongoClient = require("mongodb").MongoClient;
 const ObjectID = require("mongodb").ObjectID;
 const dbname = "car_retail";
-const url = "mongodb://localhost:27017";
+const url = process.env.MONGODB_URI || "mongodb://localhost:27017";
 const mongoOptions = {useNewUrlParser : true}
 
 //initialize the db sate to null
@@ -14,10 +14,12 @@ const connect = (cb) => {
         cb();
     else{ 
         MongoClient.connect(url,mongoOptions, (err,client) =>   {
-            if(err)
-                cb(err);
+            if(err){
+                console.log(err);
+                cb(err);}
             else{
                 state.db =client.db(dbname);
+                console.log("ok :");
                 cb();
             }
         });

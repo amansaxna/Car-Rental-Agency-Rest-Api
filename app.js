@@ -144,15 +144,16 @@ app.put('/update/car/:vehicle_no',(req ,res) => {
 });
 
 //***************************************************************************************** */
-
+const port = process.env.PORT || 3000;
 db.connect((err) => {
     if(err){
         console.log('unable to connect to database');
+        console.log(err);
         process.exit(1);
     }
     else{
-        app.listen( 3000 , () => {
-            console.log('connected to database, running on port 3000')
+        app.listen( port , () => {
+            console.log(`connected to database, running on port ${port}`)
         })
     }
 })
