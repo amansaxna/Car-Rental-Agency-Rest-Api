@@ -9,6 +9,9 @@ const db = require('./db');
 const collection = "car";
 
 /*                      READ                          */
+/**
+ * Get All the Car Objects and Bookings
+ */
 app.get('/display/all', (req ,res) => {
     console.log(req.body);
     db.getDB().collection(collection).find({}).toArray((err,documents)=>{
@@ -21,6 +24,9 @@ app.get('/display/all', (req ,res) => {
     });
 });
 
+/**
+ * Get All the Car Objects with key pair of {feature : value} 
+ */
 app.get('/display/car/:feature/:value', (req ,res) => {
     const val = req.params.value;
     let query_st = "";
@@ -44,6 +50,9 @@ app.get('/display/car/:feature/:value', (req ,res) => {
     });
 });
 
+/**
+ * Get All the Bookings with key pair of {feature : value} 
+ */
 app.get('/display/booking/:feature/:value', (req ,res) => {
     const val = req.params.value;
     let query_st = "";
@@ -69,6 +78,9 @@ app.get('/display/booking/:feature/:value', (req ,res) => {
 });
 
 /*                      Create                         */
+/**
+ * Create a Car object. 
+ */
 app.post('/add/car/', (req ,res) => {
     const userInput =req.body;
     userInput.Bookings = [];
@@ -86,6 +98,10 @@ app.post('/add/car/', (req ,res) => {
     });
 }); 
 
+/**
+ * Book a Car given that it is not booked already for the specified
+ * time.
+ */
 app.put('/book/:vehicle_no',(req ,res) => {
     const vehicle_no =req.params.vehicle_no;
     var userInput1 = {
@@ -113,6 +129,9 @@ app.put('/book/:vehicle_no',(req ,res) => {
 
 
 /*                      DELETE                          */
+/**
+ * Delete a Car object given that it has no Bookings
+ */
 app.delete('/delete/car/:vehicle_no', (req ,res) => {
     const query = { vehicle_no : parseInt(req.params.vehicle_no) , Bookings : {$size : 0 }};
     console.log(query);
@@ -127,6 +146,9 @@ app.delete('/delete/car/:vehicle_no', (req ,res) => {
 });
 
 /*                      UPDATE                          */
+/**
+ * Update a Car object given that it is not booked 
+ */
 app.put('/update/car/:vehicle_no',(req ,res) => {
     const vehicle_no =req.params.vehicle_no;
     const userInput = req.body;
@@ -144,6 +166,10 @@ app.put('/update/car/:vehicle_no',(req ,res) => {
 });
 
 //***************************************************************************************** */
+/**
+ * Create app at 3000 if port not specified,
+ * Connect MongoDb
+ */
 const port = process.env.PORT || 3000;
 db.connect((err) => {
     if(err){
@@ -158,24 +184,3 @@ db.connect((err) => {
     }
 })
 
-//const port = process.env.PORT || 3000;
-//
-//app.listen(port, () =>  console.log(`listening on port ${port}`));
-
-
-/*
-app.post('/add/car', (req ,res) => {
-    const userInput =req.body;
-    //const myquery = { vehicle_no : parseInt(userInput.vehicle_no) };
-    db.getDB().collection(collection).insertOne((userInput),(err,result)=>{
-        if(err)
-            console.log(err);
-        else
-        {
-            console.log('one document added');
-            //console.log(result);
-            res.json({result : result, document : result.ops[0]});
-        }
-    });
-});
-*/
