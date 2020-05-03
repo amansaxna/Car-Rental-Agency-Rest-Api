@@ -103,9 +103,15 @@ npm install path
 ### API Endpoints :
 
 #### Path 1.  :- Display all Car & there Bookings :
+
+## GET /display/all
+
+#### Resource URL :
+
     [GET] (https://car-rental-agency-rest-api.herokuapp.com/display/all)
     or
     [GET] (http://localhost:3000/display/all)
+    
 o/p :
 ```json
 { 
@@ -134,9 +140,22 @@ o/p :
 
 #### Path 2.  :- Search for all Cars & there Bookings b/ any {car/property/value}  or {booking/property/value} :
 
+## GET display/car/property/value  
+
+#### Resource URL 
+
     [GET] (https://car-rental-agency-rest-api.herokuapp.com/display/car/model/e)
     or
     [GET] (http://localhost:3000/display/car/model/e)
+    
+    
+## GET display/booking/property/value
+
+#### Resource URL :
+
+    [GET] (https://car-rental-agency-rest-api.herokuapp.com/display/booking/name/a)
+    or
+    [GET] (http://localhost:3000/display/booking/name/a)
 o/p :
 ```json
     {
