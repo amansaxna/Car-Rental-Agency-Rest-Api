@@ -1,20 +1,20 @@
 
 ## Car-Rental-Agency-Rest-Api
 
-### Rest-Api for CURD operations over Car objs.
+### Rest-Api for CURD operations over Car objects.
 
 #### Technologies Used  :- 
 
 * Nodejs with Express Microfamework ,
 * NoSQL Database : Mongo DB ,
 * POSTMAN Collection ,
-* Cloud Platforms : Heruku &  Mongo Atlas.
+* Cloud Platforms : Heroku &  Mongo Atlas.
 
 #### Task Covered :- 
 
 * REST API ,
 * POSTMAN Collection (https://www.getpostman.com/collections/dba800f78278c71b6bec) ,
-* Hosted on Cloud Platforms : Heruku (https://car-rental-agency-rest-api.herokuapp.com/)
+* Hosted on Cloud Platforms : Heroku (https://car-rental-agency-rest-api.herokuapp.com/)
 
 
 <hr />      
@@ -23,7 +23,7 @@
 
 ### REST-API :
 
-1. Initialize a Node Application with ***package.js***
+1. Initialize a Node Application with ***package.json***
 
 ```bash
 npm init --yes
@@ -79,7 +79,7 @@ npm run
 
 ### Mongo-db :
 
-1. install Body-parser // helps to parse json b/w clients and servers
+1. Install Body-parser // helps to parse json b/w clients and servers
 
 ```bash
 npm install body-parser
@@ -98,9 +98,9 @@ npm install path
 ```
 
 </details>
-<details><summary>Various Api Paths :</summary><br>
+<details><summary>API Endpoints :</summary><br>
 
-### Various Api Paths :
+### API Endpoints :
 
 #### Path 1.  :- Display all Car & there Bookings :
     [GET] (https://car-rental-agency-rest-api.herokuapp.com/display/all)
