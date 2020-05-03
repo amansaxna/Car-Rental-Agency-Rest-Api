@@ -3,10 +3,23 @@
 
 ### Rest-Api for CURD operations over Car objs.
 
-Technologies Used :- 
+#### Technologies Used  :- 
+
 * Nodejs with Express Microfamework ,
-* Mongo DB
-<hr />
+* NoSQL Database : Mongo DB ,
+* POSTMAN Collection ,
+* Cloud Platforms : Heruku &  Mongo Atlas.
+
+#### Task Covered :- 
+
+* REST API ,
+* POSTMAN Collection (https://www.getpostman.com/collections/dba800f78278c71b6bec) ,
+* Hosted on Cloud Platforms : Heruku (https://car-rental-agency-rest-api.herokuapp.com/)
+
+
+<hr />      
+
+<details><summary>Installation Steps :</summary><br>
 
 ### REST-API :
 
@@ -56,6 +69,11 @@ nodemon index.js
 #or
 #export PORT=5000 && nodemon index.js
 ```
+5. To start the node application 
+
+```bash
+npm run
+```
 
 <hr />
 
@@ -79,62 +97,129 @@ npm install mongodb
 npm install path
 ```
 
+</details>
+<details><summary>Various Api Paths :</summary><br>
 
-npm run serve
+### Various Api Paths :
 
-
+#### Path 1.  :- Display all Car & there Bookings :
+    [GET] (https://car-rental-agency-rest-api.herokuapp.com/display/all)
+    or
+    [GET] (http://localhost:3000/display/all)
+o/p :
 ```json
 { 
-	"vehicle_no" : "3" ,
-	"model" : "c" ,
-	"seating Capacity": "6" ,
-	"rent_per_day" : "100" , 
-	"Bookings" : 
-	[
-		{
-			"no" : "1" ,
-			"name": "aman" ,
-			"phone_no" : "9868740xxx" ,
-			"issue_date" : "05042020",
-			"return_date" : "06042020" 
-		}
-	]
+    "status": "200",
+    "data": [
+        {
+            "_id": 5,
+            "vehicle_no": 5,
+            "Bookings": [
+                            {
+                                "no": 2,
+                                "name": "raman",
+                                "phone_no": "9868740xxx",
+                                "issue_date": "2020-01-08T00:00:00.000Z",
+                                "return_date": "2020-01-09T00:00:00.000Z"
+                            }
+                        ],
+            "car_added_at": "2020-05-03T04:39:11.285Z",
+            "model": "e",
+            "rent_per_day": 5000,
+            "seating Capacity": 8
+        } 
+    ]
 }
 ```
 
+#### Path 2.  :- Search for all Cars & there Bookings b/ any {car/property/value}  or {booking/property/value} :
 
-https://docs.mongodb.com/manual/tutorial/remove-documents/
-
-
-
-post
-http://localhost:3000/add/car::
-{ 
-	"vehicle_no" : 4 ,
-	"model" : "d" ,
-	"seating Capacity": 10 ,
-	"rent_per_day" : 1000 , 
-	"Bookings" : 
-	[
-		{
-			"no" : 1 ,
-			"name": "aman" ,
-			"phone_no" : "9868740xxx" ,
-			"issue_date" : "05042020",
-			"return_date" : "06042020" 
-		}
-	]
+    [GET] (https://car-rental-agency-rest-api.herokuapp.com/display/car/model/e)
+    or
+    [GET] (http://localhost:3000/display/car/model/e)
+o/p :
+```json
+    {
+    "status": "200",
+    "data": [
+        {
+            "_id": 5,
+            "vehicle_no": 5,
+            "Bookings": [],
+            "car_added_at": "2020-05-03T04:39:11.285Z",
+            "model": "e",
+            "rent_per_day": 5000,
+            "seating Capacity": 8
+        }
+    ]
 }
+```
+#### Path 3.  :- Add new Cars :
 
-delete:
-http://localhost:3000/delete/car/4
-
-put:
-http://localhost:3000/book/1
+    [POST] (https://car-rental-agency-rest-api.herokuapp.com/display/car/model/e)
+    or
+    [POST] (http://localhost:3000/display/car/model/e)
+REQ BODY :
+```json
+{ 
+	"_id" : 5,
+	"vehicle_no" :	5 ,
+	"model" : "e" ,
+	"seating Capacity": 8 ,
+	"rent_per_day" : 5000 , 
+	"Bookings" : []
+}
+```
+o/p :
+```json
+    {
+    "status": "200",
+    "data": [
+        {
+            "_id": 5,
+            "vehicle_no": 5,
+            "Bookings": [],
+            "car_added_at": "2020-05-03T04:39:11.285Z",
+            "model": "e",
+            "rent_per_day": 5000,
+            "seating Capacity": 8
+        }
+    ]
+}
+```
+#### Path 4.  :- Book a Car :
+    [PUT] (http://localhost:3000/book/4)
+    or 
+    [PUT] (https://car-rental-agency-rest-api.herokuapp.com/book/6)
+REQ BODY :
+```json
 {
 	"no": 2,
 	"name": "raman",
 	"phone_no": "9868740xxx",
-	"issue_date": "Jan 7, 2020Z",
-	"return_date": "Jan 8, 2020Z"
+	"issue_date": "Jan 8, 2020Z",
+	"return_date": "Jan 9, 2020Z"
 }
+```
+
+#### Path 5. Update a Car
+
+    [PUT] (https://car-rental-agency-rest-api.herokuapp.com/update/car/1)
+    or
+    [PUT] (http://localhost:3000/update/car/1)
+REQ BODY :
+```json
+{ 
+	"seating Capacity": 10 ,
+	"rent_per_day" : 2000  
+}
+```
+
+#### Path 6. Delete a Car if NO BOOKING
+
+    [DELETE] (https://car-rental-agency-rest-api.herokuapp.com/delete/car/5)
+    or
+    [DELETE] (http://localhost:3000/delete/car/5)
+
+</details>
+

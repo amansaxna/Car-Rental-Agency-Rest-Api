@@ -29,7 +29,7 @@ const connect = (cb) => {
                 cb(err);}
             else{
                 state.db =client.db(dbname);
-                console.log("ok :");
+                console.log("data base connecting on :  "+url);
                 cb();
             }
         });

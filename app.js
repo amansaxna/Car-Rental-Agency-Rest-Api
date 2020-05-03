@@ -16,7 +16,7 @@ app.get('/display/all', (req ,res) => {
             console.log(err);
         else{
             console.log(documents);
-            res.json(documents);
+            res.json({ "status" : "200" , "data" : documents });
         }
     });
 });
@@ -39,7 +39,7 @@ app.get('/display/car/:feature/:value', (req ,res) => {
             console.log(err);
         else{
             console.log(documents);
-            res.json(documents);
+            res.json({ "status" : "200" , "data" : documents });
         }
     });
 });
@@ -51,10 +51,10 @@ app.get('/display/booking/:feature/:value', (req ,res) => {
     {
         console.log(val);
         console.log(parseInt(val))
-        query_st = `{ "${req.params.feature}" : ${req.params.value} }`;
+        query_st = `{ "Bookings.${req.params.feature}" : ${req.params.value} }`;
     }
     else
-        query_st = `{ "${req.params.feature}" : "${req.params.value}" }`;
+        query_st = `{ "Bookings.${req.params.feature}" : "${req.params.value}" }`;
     console.log(query_st);
     const query = JSON.parse(query_st);
     console.log(query);
@@ -63,7 +63,7 @@ app.get('/display/booking/:feature/:value', (req ,res) => {
             console.log(err);
         else{
             console.log(documents);
-            res.json(documents);
+            res.json({ "status" : "200" , "data" : documents });
         }
     });
 });

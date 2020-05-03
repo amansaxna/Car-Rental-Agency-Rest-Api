@@ -1,0 +1,139 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Car-Rental-Agency-Rest-Api",
+		"_postman_id": "82f5ee13-1f19-2224-6535-9c2953e5da39",
+		"description": "Car-Rental-Agency-Rest-Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get",
+			"description": "",
+			"item": [
+				{
+					"name": "https://car-rental-agency-rest-api.herokuapp.com/display/all",
+					"request": {
+						"url": "https://car-rental-agency-rest-api.herokuapp.com/display/all",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "* Display all "
+					},
+					"response": []
+				},
+				{
+					"name": "https://car-rental-agency-rest-api.herokuapp.com/display/car/model/e",
+					"request": {
+						"url": "https://car-rental-agency-rest-api.herokuapp.com/display/car/model/e",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "Display cars with feature == valye"
+					},
+					"response": []
+				},
+				{
+					"name": "https://car-rental-agency-rest-api.herokuapp.com/display/booking/name/raman",
+					"request": {
+						"url": "https://car-rental-agency-rest-api.herokuapp.com/display/booking/name/raman",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "post",
+			"description": "",
+			"item": [
+				{
+					"name": "https://car-rental-agency-rest-api.herokuapp.com/add/car",
+					"request": {
+						"url": "https://car-rental-agency-rest-api.herokuapp.com/add/car",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"_id\" : 6,\n\t\"vehicle_no\" :\t6 ,\n\t\"model\" : \"d\" ,\n\t\"seating Capacity\": 8 ,\n\t\"rent_per_day\" : 6000 , \n\t\"Bookings\" : []\n}"
+						},
+						"description": "Add a Car"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "put",
+			"description": "",
+			"item": [
+				{
+					"name": "https://car-rental-agency-rest-api.herokuapp.com/book/6",
+					"request": {
+						"url": "https://car-rental-agency-rest-api.herokuapp.com/book/6",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"no\": 2,\n\t\"name\": \"raman\",\n\t\"phone_no\": \"9868740xxx\",\n\t\"issue_date\": \"Jan 8, 2020Z\",\n\t\"return_date\": \"Jan 9, 2020Z\"\n}\n"
+						},
+						"description": "Book a Car if present"
+					},
+					"response": []
+				},
+				{
+					"name": "https://car-rental-agency-rest-api.herokuapp.com/update/car/6",
+					"request": {
+						"url": "https://car-rental-agency-rest-api.herokuapp.com/update/car/6",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n\t\"seating Capacity\": 10 ,\r\n\t\"rent_per_day\" : 2000  \r\n}"
+						},
+						"description": "Update car if not booked"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "delete",
+			"description": "",
+			"item": [
+				{
+					"name": "https://car-rental-agency-rest-api.herokuapp.com/delete/car/5",
+					"request": {
+						"url": "https://car-rental-agency-rest-api.herokuapp.com/delete/car/5",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": "Delete a Car w/ {:id}"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
