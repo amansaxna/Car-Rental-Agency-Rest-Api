@@ -156,9 +156,9 @@ o/p :
 ```
 #### Path 3.  :- Add new Cars :
 
-    [POST] (https://car-rental-agency-rest-api.herokuapp.com/display/car/model/e)
+    [POST] (https://car-rental-agency-rest-api.herokuapp.com/display/add/car)
     or
-    [POST] (http://localhost:3000/display/car/model/e)
+    [POST] (http://localhost:3000/add/car)
 REQ BODY :
 ```json
 { 
