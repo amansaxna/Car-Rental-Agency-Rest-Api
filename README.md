@@ -223,3 +223,7 @@ REQ BODY :
 
 </details>
 
+
+![display_all](screenshots/display_all.png "display_all")
+![displayWf](screenshots/displayWf.png "displayWf")
+![POSTMAN](screenshots/POSTMAN.png "POSTMAN")
